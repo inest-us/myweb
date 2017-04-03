@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>jQuery Sample</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script> 
+    <style>
+        table {
+            background: #CCC;
+            border: 1px solid black;
+        }
+        table td {
+            padding: 15px;
+            border: 1px solid #DDD;
+        }
+    </style>
+</head>
+<body>
+    <div id="table-container">
+
+    </div>
+    <script type="text/javascript">
+        var table = $(document.createElement('table'));
+        var tbody = $(document.createElement('tbody'));
+        var row = $(document.createElement('tr'));
+        var cell1= $(document.createElement('td'));
+
+        cell1.html('Name');
+        row.append(cell1);
+        tbody.append(row);
+        table.append(tbody);
+
+        var container = $('#table-container');
+        container.append(table);
+    </script>    
+</body>
+</html>
