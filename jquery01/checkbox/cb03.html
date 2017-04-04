@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>jQuery Sample</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+</head>
+<body>
+    <ul>
+        <li><input type="checkbox" class="parent" data-group=".group1" /> Select All</li>
+        <li><input type="checkbox" class="group1" name="check[]"> This is Item 1</li>
+        <li><input type="checkbox" class="group1" name="check[]"> This is Item 2</li>
+        <li><input type="checkbox" class="group1" name="check[]"> This is Item 3</li>
+        <li><input type="checkbox" class="group1" name="check[]"> This is Item 4</li>
+        <li><input type="checkbox" class="group1" name="check[]"> This is Item 5</li>
+        <li><input type="checkbox" class="group1" name="check[]"> This is Item 6</li>
+    </ul>
+
+    <ul>
+        <li><input type="checkbox" class="parent" data-group=".group2" /> Select All</li>
+        <li><input type="checkbox" class="group2" name="check[]"> This is Item 1</li>
+        <li><input type="checkbox" class="group2" name="check[]"> This is Item 2</li>
+        <li><input type="checkbox" class="group2" name="check[]"> This is Item 3</li>
+        <li><input type="checkbox" class="group2" name="check[]"> This is Item 4</li>
+        <li><input type="checkbox" class="group2" name="check[]"> This is Item 5</li>
+        <li><input type="checkbox" class="group2" name="check[]"> This is Item 6</li>
+    </ul>
+    <script>
+        $(".parent").each(function(index){
+            var group = $(this).data("group");
+            var parent = $(this);
+
+            parent.change(function(){  //"select all" change 
+                $(group).prop('checked', parent.prop("checked"));
+            });
+            $(group).change(function(){ 
+                parent.prop('checked', false);
+                if ($(group+':checked').length == $(group).length ){
+                    parent.prop('checked', true);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
