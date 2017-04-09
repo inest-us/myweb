@@ -40,7 +40,7 @@
         
         for (var i = 0; i < members.length; i++) {
             var obj = {};
-            obj.parent = null;
+            obj.parentId = null;
             obj.member = members[i];
             regionsDict[members[i].shippingRegionId] = obj;
         }
@@ -48,11 +48,14 @@
         var graph = document.getElementById("graph");
 
         for (var i = 0; i < regionsGraph.parentShippingRegion.subregionIds.length; i++) {
-            process(regionsGraph.parentShippingRegion.subregionIds[i], 1, graph);
+            process(regionsGraph.parentShippingRegion.subregionIds[i], 1, regionsGraph.parentShippingRegion.shippingRegionId, graph);
         }
 
-        function process(subRegionId, level, container) {
+        function process(subRegionId, level, parentId, container) {
             if (regionsDict[subRegionId]) {
+                //update node's parentId
+                regionsDict[subRegionId].parentId = parentId;
+
                 var subRegion = regionsDict[subRegionId]
                 var className = 'level' + level;
 
@@ -82,7 +85,7 @@
 
                 //recursive call
                 for (var i = 0; i < subRegion.member.subregionIds.length; i++) {
-                    process(subRegion.member.subregionIds[i], level + 1, div);
+                    process(subRegion.member.subregionIds[i], level + 1, subRegion.member.shippingRegionId, div);
                 }
             }
         }
@@ -95,10 +98,7 @@
                 cascadeDown(region.member.subregionIds[i], val);
             }
 
-            //uncheck parent if one of its children is unchecked
-            if (val == false) {
-
-            }
+            bubleUp(region, val);
         }
 
         function cascadeDown(regionId, val) {
@@ -108,12 +108,24 @@
             //recursive call
             var region = regionsDict[regionId];
             if (region.member.subregionIds.length > 0) {
-                for (i = 0; i < region.member.subregionIds.length; i++) {
-                    cascadeDown(region.member.subregionIds[i], val);
+                for (j = 0; j < region.member.subregionIds.length; j++) {
+                    cascadeDown(region.member.subregionIds[j], val);
                 }
             }
         }
 
+        function bubleUp(region, val) {
+            //uncheck parent if one of its children is unchecked
+            if (val == false) {
+                if (region.parentId) {
+                    var parentId = region.parentId;
+                    var parent = document.getElementById(parentId);
+                    if (parent) {
+                        parent.checked = false;
+                    }
+                }
+            }
+        }
     </script>
 </body>
 </html>
