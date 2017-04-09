@@ -8,7 +8,12 @@
             margin-bottom: 10px;
             margin-left: 100px;
         }
-
+        .level2 {
+            margin-left: 100px;
+        }
+        .level3 {
+            margin-left: 100px;
+        }
     </style>
 </head>
 <body>
@@ -26,10 +31,10 @@
         var graph = document.getElementById("graph");
 
         for (var i = 0; i < regionsGraph.parentShippingRegion.subregionIds.length; i++) {
-            process(regionsGraph.parentShippingRegion.subregionIds[i], 1);
+            process(regionsGraph.parentShippingRegion.subregionIds[i], 1, graph);
         }
 
-        function process(subRegionId, level) {
+        function process(subRegionId, level, container) {
             if (regionsDict[subRegionId]) {
                 var subRegion = regionsDict[subRegionId]
                 var className = 'level' + level;
@@ -37,22 +42,25 @@
                 //process root
                 var div = document.createElement('div');
                 div.className = className;
-                console.log(subRegion.displayName);
                 
                 var cb = document.createElement('input');
                 cb.type = 'checkbox';
-                cb.value = 1;
-                cb.name = 'todo[]';
-                cb.id = 'id';
+                cb.name = 'region[]';
+                cb.value = subRegion.shippingRegionId;
+                cb.id = subRegion.shippingRegionId;
+
+                cb.addEventListener('change', function (e){
+                    console.log(this.value);
+                });
 
                 var lbl = document.createElement('label');
-                lbl.htmlFor = 'id';
+                lbl.htmlFor = subRegion.shippingRegionId;
                 lbl.appendChild(document.createTextNode(subRegion.displayName));
 
                 div.appendChild(cb);
                 div.appendChild(lbl);
 
-                graph.appendChild(div);
+                container.appendChild(div);
 
                 if (subRegion.subregionIds.length > 0) {
 
@@ -60,7 +68,7 @@
 
                 //recursive call
                 for (var i = 0; i < subRegion.subregionIds.length; i++) {
-                    process(subRegion.subregionIds[i], level + 1);
+                    process(subRegion.subregionIds[i], level + 1, div);
                 }
             }
         }
