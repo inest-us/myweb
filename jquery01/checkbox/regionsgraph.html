@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>jQuery Sample</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script> 
+    <script src ="data.js"> </script> 
+    <style>
+        .level1 {
+            margin-bottom: 10px;
+            margin-left: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="graph">
+    </div>
+    <script>
+        var regionsDict = {};
+        var subRegions = regionsGraph.subregions;
+        var members = subRegions.members;
+        
+        for (var i = 0; i < members.length; i++) {
+            regionsDict[members[i].shippingRegionId] = members[i];
+        }
+
+        var graph = document.getElementById("graph");
+
+        for (var i = 0; i < regionsGraph.parentShippingRegion.subregionIds.length; i++) {
+            process(regionsGraph.parentShippingRegion.subregionIds[i], 1);
+        }
+
+        function process(subRegionId, level) {
+            if (regionsDict[subRegionId]) {
+                var subRegion = regionsDict[subRegionId]
+                var className = 'level' + level;
+
+                //process root
+                var div = document.createElement('div');
+                div.className = className;
+                console.log(subRegion.displayName);
+                
+                var cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.value = 1;
+                cb.name = 'todo[]';
+                cb.id = 'id';
+
+                var lbl = document.createElement('label');
+                lbl.htmlFor = 'id';
+                lbl.appendChild(document.createTextNode(subRegion.displayName));
+
+                div.appendChild(cb);
+                div.appendChild(lbl);
+
+                graph.appendChild(div);
+
+                if (subRegion.subregionIds.length > 0) {
+
+                }
+
+                //recursive call
+                for (var i = 0; i < subRegion.subregionIds.length; i++) {
+                    process(subRegion.subregionIds[i], level + 1);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
