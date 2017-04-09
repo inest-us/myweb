@@ -4,15 +4,29 @@
     <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script> 
     <script src ="data.js"> </script> 
     <style>
-        .level1 {
-            margin-bottom: 10px;
+        #graph {
+            border: 1px solid black;
             margin-left: 100px;
+            width: 500px;
+        }
+        .level1 {
+            margin-left: 25px;
+            margin-right: 25px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid black;
         }
         .level2 {
-            margin-left: 100px;
+            margin-left: 25px;
+            margin-right: 25px;
+            margin-bottom: 10px;
+            border: 1px solid black;
         }
         .level3 {
-            margin-left: 100px;
+            margin-left: 25px;
+            margin-right: 25px;
+            margin-bottom: 10px;
+            border: 1px solid black;
         }
     </style>
 </head>
@@ -48,9 +62,8 @@
                 cb.name = 'region[]';
                 cb.value = subRegion.shippingRegionId;
                 cb.id = subRegion.shippingRegionId;
-
-                cb.addEventListener('change', function (e){
-                    console.log(this.value);
+                cb.addEventListener('change', function (e) {
+                    handleChange(this);
                 });
 
                 var lbl = document.createElement('label');
@@ -72,6 +85,29 @@
                 }
             }
         }
+
+        function handleChange(element) {
+            //check/uncheck all descendant
+            var val = element.checked;
+            var region = regionsDict[element.id];
+            for (i = 0; i < region.subregionIds.length; i++) {
+                cascadeDown(region.subregionIds[i], val);
+            }
+        }
+
+        function cascadeDown(regionId, val) {
+            var element = document.getElementById(regionId);
+            element.checked = val;
+
+            //recursive call
+            var region = regionsDict[regionId];
+            if (region.subregionIds.length > 0) {
+                for (i = 0; i < region.subregionIds.length; i++) {
+                    cascadeDown(region.subregionIds[i], val);
+                }
+            }
+        }
+
     </script>
 </body>
 </html>
