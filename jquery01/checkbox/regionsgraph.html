@@ -116,12 +116,27 @@
 
         function bubleUp(region, val) {
             //uncheck parent if one of its children is unchecked
-            if (val == false) {
-                if (region.parentId) {
-                    var parentId = region.parentId;
-                    var parent = document.getElementById(parentId);
-                    if (parent) {
-                        parent.checked = false;
+            if (region.parentId) {
+                var parentId = region.parentId;
+                var parent = document.getElementById(parentId);
+                if (parent) {
+                    if (val == false) {
+                        parent.checked = val;
+                        bubleUp(regionsDict[parentId], val);
+                    }
+                    else {
+                        var allChildren = regionsDict[parentId].member.subregionIds;
+                        count = 0;
+                        for (k = 0; k < allChildren.length; k++) {
+                            var cb = document.getElementById(allChildren[k]);
+                            if (cb.checked) {
+                                count++;
+                            }
+                        }
+                        if (count == allChildren.length) {
+                            parent.checked = val;
+                            bubleUp(regionsDict[parentId], val);
+                        }
                     }
                 }
             }
