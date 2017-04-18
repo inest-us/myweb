@@ -21,12 +21,18 @@
             margin-right: 25px;
             margin-bottom: 10px;
             border: 1px solid black;
+            display: inline-block;
         }
         .level3 {
             margin-left: 25px;
             margin-right: 25px;
             margin-bottom: 10px;
             border: 1px solid black;
+            display: inline-block;
+        }
+
+        .break {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -72,11 +78,11 @@
 
                 var lbl = document.createElement('label');
                 lbl.htmlFor = subRegion.member.shippingRegionId;
+                lbl.className = 'break';
                 lbl.appendChild(document.createTextNode(subRegion.member.displayName));
-
+                
                 div.appendChild(cb);
                 div.appendChild(lbl);
-
                 container.appendChild(div);
 
                 if (subRegion.member.subregionIds.length > 0) {

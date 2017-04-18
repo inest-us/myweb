@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>jQuery Sample</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script> 
+    <style>
+        .edit-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <label id="lbl01">Enter Table Name</label>
+    <input type="text" id="txt01" class="edit-input" />
+    <a id="btnEdit">edit</a>
+    <script>
+        $('#btnEdit').click(function(){
+            $('#lbl01').hide();
+            $('#txt01').show().focus();
+        });
+        $('#txt01').focusout(function(){
+            var val = $('#txt01').val();
+            $('#txt01').hide();
+            $('#lbl01').text(val).show();
+        });
+    </script>
+</body>
+</html>
