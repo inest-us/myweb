@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>jQuery Sample</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+</head>
+<body bgcolor="yellow">
+    <a href='#'>link</a>
+    <a href='#'>link</a>
+    <a href='#'>link</a>
+    <a href='#'>link</a>
+    <a href='#'>link</a>
+    <a href='#'>link</a>
+    <script>
+        $(document).ready(function(){
+            var length = $("a").length;
+            console.log("Page contains " + length + " <a> elements");
+            var bgcolor = $(document.body).attr("bgcolor");
+            console.log("bgcolor = " + bgcolor);
+        });
+    </script>
+</body>
+</html>
