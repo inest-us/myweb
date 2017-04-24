@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>jQuery Sample</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+    <style>
+        a {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Ut ad videntur facilisis <em>elit</em> cum. Nibh insitam erat facit
+        <em>saepius</em> magna. Nam ex liber iriure et imperdiet. Et mirum eros
+        iis te habent. 
+    </p>
+    <p>
+        Claram claritatem eu amet dignissim magna. Dignissim quam elit facer eros
+        illum. Et qui ex esse <em>tincidunt</em> anteposuerit. Nulla nam odio ii
+        vulputate feugait.
+    </p>
+    <p>
+        In quis <em>laoreet</em> te legunt euismod. Claritatem <em>consuetudium</em>
+        wisi sit velit facilisi.
+    </p>
+
+    <script>
+        $(document).ready(function() {
+            var count1 = $("p").find("em").length;
+            console.log("count1 = " + count1);
+            
+            var count2 = $("em", $("p")).length;
+            console.log("count2 = " + count2);
+        });
+    </script>
+</body>
+</html>
+

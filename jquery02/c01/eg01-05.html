@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>jQuery Sample</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+    <style>
+        a {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="external">link</a>
+    <a href="#" class="external">link</a>
+    <a href="#"></a>
+    <a href="#" class="external">link</a>
+    <a href="#" class="external">link</a>
+    <a href="#"></a>
+    <a href="#">link</a>
+    <a href="#">link</a>
+    <a href="#">link</a>
+    <a href="#">link</a>
+
+    <script>
+        $(document).ready(function() {
+            //output 4 left in the set
+            console.log($("a").filter(".external").length + " external links");
+
+            //using anonymous function
+            var count = $("a").filter(function(index){
+                //when I use $(this), I am actually referring to each DOM element is the wrapper set.
+                return $(this).hasClass("external");    
+            }).length;
+
+            console.log(count + " external links");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>jQuery Sample</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+</head>
+<body>
+    <form>
+        <input name="" type="checkbox" />
+        <input name="" type="radio" />
+        <input name="" type="text" />
+        <input name="" type="button" />
+    </form>
+
+    <form>
+        <input name="" type="checkbox" />
+        <input name="" type="radio" />
+        <input name="" type="text" />
+        <input name="" type="button" />
+    </form>
+
+    <input name="" type="checkbox" />
+    <input name="" type="radio" />
+    <input name="" type="text" />
+    <input name="" type="button" />
+    
+    <script>
+        $(document).ready(function(){
+            //Search within all form elements, using a wrapper for context, output 8
+            console.log("selected " + $("input", $("form")).length + " input");
+
+            //Search within the first form element, output 4
+            console.log("selected " + $("input", $("form")[0]).length + " input");
+
+            //Search within the body element, output 12
+            console.log("selected " + $("input", $("body")).length + " input");
+        });
+    </script>
+</body>
+</html>
