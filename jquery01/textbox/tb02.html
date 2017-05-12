@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>jQuery Sample</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script> 
+    <style>
+        .edit-input {
+            display: none;
+        }
+        #txt01 {
+            width: 144px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" style="width:500px;">
+        <tr>
+            <td>
+                Idaho
+            </td>
+            <td style="width: 144px;" onclick="handleEdit(this);">
+                <span>$</span><span>5.00</span>
+                <input type="text" id="txt01" class="edit-input" />
+            </td>
+        </tr>
+    </table>
+    <script>
+        function handleEdit(costCell) {
+            $($(costCell).children()[0]).hide();
+            $($(costCell).children()[1]).hide();
+            $($(costCell).children()[2]).show().focus();
+        }
+        $('#txt01').focusout(function(e) {
+            var val = $(this).val();
+            $(this).hide();
+            
+            var parent = $(this).parent()[0];
+            $($(parent).children()[0]).show();
+            $($(parent).children()[1]).text(val).show();
+        });
+
+        $('#txt01').keyup(function(e) {
+            if (e.keyCode == 13) {
+                var val = $(this).val();
+                $(this).hide();
+                
+                var parent = $(this).parent()[0];
+                $($(parent).children()[0]).show();
+                $($(parent).children()[1]).text(val).show();
+            }
+        });
+    </script>
+</body>
+</html>
