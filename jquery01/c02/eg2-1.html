@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>jQuery Sample 2 - 1</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+</head>
+<body>
+  <h3> Members of my Group are </h3>
+  <p></p>
+  <hr />
+  <p></p>
+  <hr />
+  <ol id="list"></ol>
+  <script>
+      $(document).ready(function() {
+        var members = ["John", "Steve", "Ben", "Damon", "Ian"];
+        $($('p')[0]).text(members.join(", "));
+
+        $($('p')[1]).html(members.join("<br/>"));
+
+        var memlist = $( "#list" );
+        $.each(members, function(index, value) {
+          memlist.append($("<li>" + value + "</li>"));
+        });
+      });
+  </script>
+</body>
+</html>

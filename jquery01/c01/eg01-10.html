@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>jQuery Sample 1 - 10</title>
+    <style>
+        .highlight {
+          color:green;
+          font-style:italic
+        }
+        .features {
+          color:green;
+          font-style:italic
+        }
+    </style>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+</head>
+<body>
+    <p class="features">Styles make the formatting job much easier and more efficient.</p>
+    To give an attractive look to web sites, styles are heavily used.
+    <h1 class="features">Using jQuery</h1>
+    <script>
+        $(document).ready(function() {
+          $('.features').addClass('highlight');
+        });
+    </script>
+</body>
+</html>

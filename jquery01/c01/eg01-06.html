@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>jQuery Sample 1 - 6</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script> 
+</head>
+<body>
+    <div id="root">
+        <div>Darjeeling</div>
+        <div>Assam</div>
+        <div>Kerala</div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            var nodes = $('#root').children();
+            console.log('Number of nodes is '+ nodes.length);
+            var txt = '';
+            $('#root').children().each(function() {
+                txt += $(this).text();
+            });
+            console.log(txt);
+        });
+    </script>
+</body>
+</html>
