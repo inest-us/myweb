@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>jQuery Sample 2 - 3 - 2</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+</head>
+<body>
+    <h3>Members of my Group are</h3>
+    <p class="allmem"></p>
+    <h3>Names start with A, B, C, or D</h3>
+    <p class="selected"></p>
+    <script>
+        $(document).ready(function() {
+            var members = ["John", "Steve", "Ben", "Damon","Ian"];
+            $('p.allmem').html(members.join("<br />"));
+            /*
+                \b Word boundary
+                \d Numerical from 0 to 9
+                \s Single white space
+                \w Character, numeral, or underscore
+                . Any character except the newline character
+                […] Any one of the character in the brackets
+                {n} Exactly n times
+                {n,} n or more times
+                {n.m} Between n and m
+                ? Zero or more times
+                + One or more times
+                ^ At the beginning
+                $ At the end
+            */
+            members = $.grep(members, function(v) { return v.match(/^[A-D]/)});
+            $('p.selected').html(members.join("<br />"));
+
+            /*
+            To find out the names that are of exactly five characters in length, we may use following regular expression
+            members = $.grep(members, function(v) { return v.match(/\b.{5}\b/)});
+            */
+
+            /*
+            only those names that end with character n, like this:
+            members = $.grep(members, function(v) { return v.match(/[n]$/)});
+            */
+        });
+    </script>
+</body>
+</html>

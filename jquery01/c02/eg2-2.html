@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>jQuery Sample 2 - 2</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+</head>
+<body>
+    <h3> Members of my Group are </h3>
+    <p id="p1"></p>
+    <hr />
+    <p id="p2"></p>
+    <hr />
+    <ol id="list"></ol>
+    <script>
+        $(document).ready(function() {
+            var members = [ "John", "Steve", "Ben", "Damon", "Ian" ];
+            //map(array, callback);
+            members_1 = $.map (members, function (n, i) { 
+                            return ((i + 1) + ". " + n); 
+                        });
+            $('#p1').html(members_1.join("<br />"));
+
+            members_2 = $.map (members, function (n, i) { 
+                            return ((i + 1) + ". " + n.toUpperCase()); 
+                        });
+            $('#p2').html(members_2.join("<br />"));
+
+            var memlist = $("#list");
+            members_3 = $.map (members, function (n) { 
+                            return n.toUpperCase(); 
+                        });
+            $.each(members_3, function(index, value) {
+                memlist.append($("<li>" + value + "</li>"));
+            });
+        });
+    </script>
+</body>
+</html>

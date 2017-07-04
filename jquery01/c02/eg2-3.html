@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>jQuery Sample 2 - 3</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+</head>
+<body>
+    <h3>Members of my Group are</h3>
+    <p class="allmem"></p>
+    <h3>Names with more than 4 characters in length are</h3>
+    <p class="selected"></p>
+    <script>
+        $(document).ready(function() {
+            var members = ["John", "Steve", "Ben", "Damon","Ian"];
+            $('p.allmem').html(members.join("<br />"));
+            /*
+                grep(array, callback, boolean)
+                1. array
+                is the original array that is passed to this method for performing filtering tasks on it.
+                2. callback 
+                is the function that performs filtering tasks and returns the values that
+                make up the filtered array. This function can carry two parameters; one is the
+                array element and the second is the index value.
+                3. boolean 
+                is usually omitted. If it is specified and is set to false (which is the
+                default), then it has no effect, but if its value is set to true, then the operation of
+                the callback function is inverted. That is, it will return the values that do not match
+                the conditional statements present in the callback function.
+            */
+            members = $.grep(members, function(v) { 
+                            return v.length > 4
+                        });
+            $('p.selected').html(members.join("<br />"));
+        });
+    </script>
+</body>
+</html>
