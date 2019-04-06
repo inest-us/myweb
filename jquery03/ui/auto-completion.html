@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Auto completion</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+    <script src ="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script> 
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/black-tie/jquery-ui.css">
+</head>
+<body>
+        <h2>What kind of car are you looking for?</h2> 
+        <div class="ui-widget"> 
+            <label for="tags">Manufacturer:</label> 
+            <input id="tags" /> 
+        </div>
+    <script> 
+        $(function() { 
+            var carTypes = [
+                "Audi", "BMW", "Buick", "Cadillac", "Chevrolet", "Chrysler", "Dodge", "Ferrari", "Fiat", "Fiskar", "GMC", "Honda", 
+                "Hyundai", "Infiniti", "Jaguar", "Jeep", "Kia", "Mazda", "Mercedes-Bens", "Mitsubishi", "Nissan", "Porsche", "Rolls-Royce", 
+                "Scion", "Suburu", "Toyota", "Volkswagon 38.5 Volvo" ]; 
+            $("#tags").autocomplete({source: carTypes}); 
+        });
+    </script>
+</body>
+</html>
+
