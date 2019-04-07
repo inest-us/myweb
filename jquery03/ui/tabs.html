@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JQuery UI Tabs</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+    <script src ="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script> 
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/black-tie/jquery-ui.css">
+    <style>
+        .layout {
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <h1>Sam's Used Cars</h1> 
+        <h2>2013 Rolls-Royce Phantom Drophead Coupe Base - $507,800</h2>
+        <div id="tabs"> 
+            <ul> 
+                <li>
+                    <a href="#tabs-1">Overview</a> 
+                </li> 
+                <li> 
+                    <a href="#tabs-2">Photographs</a> 
+                </li> 
+                <li> 
+                    <a href="#tabs-3">Finance Calculator</a> 
+                </li> 
+            </ul> 
+            <div id="tabs-1"> 
+                <p>
+                    Mileage: 23<br /> 
+                    Body Style: Convertible <br /> 
+                    Exterior Color: Midnight Sapphire <br /> 
+                    Interior Color: Seashell <br /> 
+                    Stock #: R177 <br /> <br /> 
+                    Fuel: Gasoline <br /> 
+                    Engine: 6.8L V12 48V GDI DOHC <br /> 
+                    Transmission: 8-Speed Automatic <br /> 
+                    Drivetrain: RWD <br />
+                    Doors: 2 
+                </p> 
+            </div> 
+            <div id="tabs-2"> 
+                <p>
+                    <img alt="Rolls Royce Interior" height="266" src="Rolls.jpg" width="400"> 
+                </p> 
+            </div> 
+            <div id="tabs-3"> 
+                <p>Seriously.& nbsp; If you have to ask, you can't afford this one.</p> 
+            </div> 
+        </div>
+    </div>
+    <script> 
+        $(function() { 
+            $("#tabs").tabs();
+        });
+    </script>
+</body>
+</html>
+
+
