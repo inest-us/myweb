@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JQuery UI Slider</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+    <script src ="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script> 
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/black-tie/jquery-ui.css">
+    <style>
+        .layout {
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <h1><label for="amount">Sam's Used Cars</label></h1>
+        <p><label for="amount">Sam wants to put you into a new (used) car!</label></p> 
+        <p>
+            <label for="amount">First, how much can you spend a month? ($25 increments):</label> 
+            <input type="text" id="amount" style="border: 0; color: green; font-weight: bold;" /> 
+        </p> 
+        <div id="slider"></div> 
+    </div>
+    <script> 
+        $(function() { 
+            $("#slider").slider({ 
+                value: 200, 
+                min: 100, 
+                max: 500, 
+                step: 25,
+                slide: 
+                    function(event, ui) { 
+                        $("#amount").val("$" + ui.value);
+                    }
+            });
+            $("#amount").val("$" + $("#slider").slider("value"));
+        });
+    </script>
+</body>
+</html>
+
+

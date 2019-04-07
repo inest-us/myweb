@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JQuery UI Progressbar</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+    <script src ="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script> 
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/black-tie/jquery-ui.css">
+    <style>
+        .layout {
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <h1>Sam's Used Cars</h1>
+        <p>Thank you for taking your car to Sam's Used Cars repair shop.</p> 
+        <p>Your car is 37% repaired... In other words, we have successfully taken it apart.</p>
+        <div id="progressbar"></div>
+    </div>
+    <script> 
+        $(function() { 
+            $("#progressbar").progressbar({value: 37});
+        });
+    </script>
+</body>
+</html>
+
