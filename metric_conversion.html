@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>metric conversion</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+</head>
+<body>
+    <div id="cToFDiv">
+        <div>
+            <label>Celsius degree: </label>
+            <input type="text" id="cdegreeTextbox" />
+        </div>
+        <div>
+            <button id="celsiusToFahrenheit" type="button">CelsiusToFahrenheit</button>
+        </div>
+        <div>
+            <label>Fahrenheit degree: </label>
+            <label id="fahrenheitLabel"></label>
+        </div>
+    </div>
+    
+    <div id="fToCDiv">
+        <div>
+            <label>Fahrenheit degree: </label>
+            <input type="text" id="fdegreeTextbox" />
+        </div>
+        <div>
+            <button id="fahrenheitToCelsius" type="button">FahrenheitToCelsius</button>
+        </div>
+        <div>
+            <label>Celsius degree: </label>
+            <label id="celsiusLabel"></label>
+        </div>
+    </div>
+    
+    <script>
+        $("#celsiusToFahrenheit").click(function(){
+            var cdegree = parseFloat($("#cdegreeTextbox").val());
+            var fdegree = cdegree * 1.8 + 32;
+            $("#fahrenheitLabel").text(fdegree);
+        });
+
+        $("#fahrenheitToCelsius").click(function(){
+            var fdegree = parseFloat($("#fdegreeTextbox").val());
+            var cdegree = (fdegree - 32) *  0.5556;
+            $("#celsiusLabel").text(cdegree);
+        });
+    </script>
+</body>
+</html>
