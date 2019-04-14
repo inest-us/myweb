@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Buttons</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+    <script src ="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script> 
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/black-tie/jquery-ui.css">
+</head>
+<body>
+    <h2>Examples of the jQuery button widget</h2> 
+    <button>A button element</button> 
+    <input type="submit" value="A submit button" />
+    <a href="#">An anchor</a>
+    <script> 
+        $(function() { 
+            $("input[type=submit], a, button").button()
+        });
+    </script>
+</body>
+</html>
+

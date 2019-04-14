@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JQuery UI Menu</title>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+    <script src ="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script> 
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/black-tie/jquery-ui.css">
+    <style> 
+        .ui-menu { 
+            width: 200px; 
+        } 
+    </style>
+
+</head>
+<body>
+    <h1>Sam's Used Cars</h1> 
+    <ul id="menuCars"> 
+        <li><a href="#">Buy a Car</a></li> 
+        <li><a href="#">Sell a Car</a> 
+            <ul> 
+                <li><a href="#">Tow in</a></li> 
+                <li><a href="#">Drive in</a></li> 
+            </ul> 
+        </li> 
+        <li><a href="#">Finance</a></li> 
+        <li><a href="#">Research a Car</a></li> 
+        <li><a href="#">Service</a> 
+            <ul> 
+                <li><a href="#">Parts</a> 
+                    <ul> 
+                        <li><a href="#">OEM Parts</a></li> 
+                        <li><a href="#">El Cheapo Parts</a></li> 
+                    </ul> 
+                </li> 
+                <li><a href="#">Repair</a></li> 
+            </ul> 
+        </li> 
+        <li class="ui-state-disabled"><a href="#">Feedback</a></li> 
+    </ul>
+
+    <script> 
+        $(function() { 
+            $("#menuCars").menu()
+        });
+    </script>
+</body>
+</html>
+
