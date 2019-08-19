@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>angular 1_3</title>
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"> </script> 
+</head>
+<body>
+    <div ng-app = "" ng-init = "colorname = ['Pink', 'Red', 'Green', 'Blue', 'Black', 'White', 'Yellow', 'Gray']">
+        <p style="color: green;font-weight: bold;">Color Name:</p>
+        <ol>
+            <li ng-repeat = "x in colorname">
+                <p ng-bind="x"></p>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>angular 1_4</title>
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"> </script> 
+</head>
+<body>
+    <h1>Using Upper Case Filter</h1>
+    <div ng-app="" ng-init="Username='ray'"> 
+        <p>User Name: <input type="text" ng-model="Username"></p> 
+        <p style="color:red;" ng-bind="Username | uppercase"></p> 
+        <p style="color:red;" ng-bind="Username | lowercase"></p> 
+    </div>
+</body>
+</html>
+

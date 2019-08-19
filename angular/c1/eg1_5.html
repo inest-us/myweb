@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>angular 1_5</title>
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"> </script> 
+</head>
+<body>
+    <h1>Using OrderBy Filter</h1>
+    <div ng-app="" ng-init="StudentsResult=
+        [
+            {name: 'Tahir', marks:81},             
+            {name: 'Smith', marks:70},              
+            {name: 'Yao', marks:90},             
+            {name: 'Suo', marks:63}, 
+            {name: 'Ray', marks:98}
+        ]"> 
+        <table border="1"> 
+            <tr> 
+                <th>Student Name</th> 
+                <th>Mathematics’ Result</th> 
+            </tr> 
+            <tr ng-repeat="x in StudentsResult | orderBy:'-marks'"> 
+                <td ng-bind="x.name "></td> 
+                <td ng-bind="x.marks "></td> 
+            </tr>
+        </table>                                          
+    </div>
+</body>
+</html>
+

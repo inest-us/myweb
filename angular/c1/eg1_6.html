@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>angular 1_6</title>
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"> </script> 
+</head>
+<body>
+    <h1>Using Currency Filter</h1>
+    <div ng-app="" ng-init="Employees_Monthly_Salary=
+            [
+                {name: 'Jay', salary:8100}, 
+                {name: 'Sxt', salary:7000},              
+                {name: 'Hao', salary:9000}, 
+                {name: 'Luoe', salary:6300}, 
+                {name: 'Fin', salary:9800}
+            ]">
+        <table border="1"> 
+            <tr> 
+                <th>Employee Name</th> 
+                <th>Employee Salary</th> 
+            </tr> 
+            <tr ng-repeat="x in Employees_Monthly_Salary"> 
+                <td ng-bind="x.name"></td> 
+                <td ng-bind="x.salary | currency"></td> 
+            </tr> 
+        </table>                                          
+    </div>
+</body>
+</html>
+
