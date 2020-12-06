@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>angular 3_1</title>
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"> </script> 
+</head>
+<body>
+    <div ng-app = "" ng-init="username='test user'">
+        <p>Username: <input type="text" ng-model="username"></p>
+        <p style="color: red;" ng-bind="username | uppercase"></p>
+    </div>
+</body>
+</html>
+
