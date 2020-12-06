@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
-    <title>Dive Log (HTML)</title> 
+    <title>Dive Log</title> 
     <!-- Latest compiled and minified CSS --> 
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> 
     
@@ -13,27 +13,25 @@
 
     <!-- Latest compiled and minified JavaScript --> 
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="dives.js"></script>
 </head> 
 <body> 
-    <div class="container"> 
-        <h1>My Latest Dives (HTML)</h1> 
-        <div class="row"> 
-            <div class="col-sm-4"> <h3>Abu Gotta Ramada</h3>
-                <h4>Hurghada, Egypt</h4> 
-                <h2>72 feet | 54 min</h2> 
-            </div> 
-            <div class="col-sm-4"> 
-                <h3>Ponte Mahoon</h3> 
-                <h4>Maehbourg, Mauritius</h4> 
-                <h2>54 feet | 38 min</h2> 
-            </div> 
-            <div class="col-sm-4"> 
-                <h3>Molnar Cave</h3> 
-                <h4>Budapest, Hungary</h4> 
-                <h2>98 feet | 62 min</h2> 
-            </div> 
+    <div class="container-fluid"> 
+        <h1>My Latest Dives</h1> 
+        <div class="row" id="logbook"> 
         </div> 
     </div> 
+    <script>
+        $(document).ready(function () {
+            for (var i = 0; i < dives.length; i++) { 
+                var dive = dives[i]; 
+                $("#logbook").append("<div class='col-sm-4'>" + 
+                    '<h3>' + dive.site + '</h3>' + 
+                    '<h4>' + dive.location + '</h4>' + 
+                    '<h2>' + dive.depth + ' feet | ' + dive.time + ' min</h2>' + 
+                '</div>'); 
+            }});
+    </script>
 </body> 
 </html>
 
