@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>angular 5_1</title>
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"> </script> 
+</head>
+<body>
+    <h1>Using Mousemove event</h1>
+    <div ng-app = "">
+        <textarea ng-mousemove="count = count + 1" ng-init="count=0">
+            Here is the textarea
+        </textarea>
+        <br />
+        count: {{count}}
+    </div>
+</body>
+</html>
+
