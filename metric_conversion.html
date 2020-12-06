@@ -3,37 +3,49 @@
 <head>
     <meta charset="utf-8">
     <title>metric conversion</title>
-    <script src ="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+    <!-- Latest compiled and minified CSS --> 
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> 
+    
+    <!-- Optional theme --> 
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> 
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript --> 
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div id="cToFDiv">
-        <div>
-            <label>Celsius degree: </label>
-            <input type="text" id="cdegreeTextbox" />
+    <div class="container">
+        <div class="row" id="cToFDiv">
+            <h2>Celsius to Fahrenheit</h2>
+            <div>
+                <label>Celsius degree: </label>
+                <input type="text" id="cdegreeTextbox" />
+            </div>
+            <div>
+                <button id="celsiusToFahrenheit" type="button">CelsiusToFahrenheit</button>
+            </div>
+            <div>
+                <label>Fahrenheit degree: </label>
+                <label id="fahrenheitLabel"></label>
+            </div>
         </div>
-        <div>
-            <button id="celsiusToFahrenheit" type="button">CelsiusToFahrenheit</button>
-        </div>
-        <div>
-            <label>Fahrenheit degree: </label>
-            <label id="fahrenheitLabel"></label>
+        <div class="row" id="fToCDiv">
+            <h2>Fahrenheit to Celsius</h2>
+            <div>
+                <label>Fahrenheit degree: </label>
+                <input type="text" id="fdegreeTextbox" />
+            </div>
+            <div>
+                <button id="fahrenheitToCelsius" type="button">FahrenheitToCelsius</button>
+            </div>
+            <div>
+                <label>Celsius degree: </label>
+                <label id="celsiusLabel"></label>
+            </div>
         </div>
     </div>
-    
-    <div id="fToCDiv">
-        <div>
-            <label>Fahrenheit degree: </label>
-            <input type="text" id="fdegreeTextbox" />
-        </div>
-        <div>
-            <button id="fahrenheitToCelsius" type="button">FahrenheitToCelsius</button>
-        </div>
-        <div>
-            <label>Celsius degree: </label>
-            <label id="celsiusLabel"></label>
-        </div>
-    </div>
-    
     <script>
         $("#celsiusToFahrenheit").click(function(){
             var cdegree = parseFloat($("#cdegreeTextbox").val());
