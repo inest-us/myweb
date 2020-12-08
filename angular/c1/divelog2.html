@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Dive Log</title> 
+    <!-- Latest compiled and minified CSS --> 
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> 
+    
+    <!-- Optional theme --> 
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> 
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript --> 
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <!-- Angular -->
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"> </script> 
+</head> 
+<body> 
+    <div ng-app="" class="container-fluid"> 
+        <h1>My Latest Dives</h1> 
+        <div class="row" ng-init="dives = [
+        { 
+            site: 'Abu Gotta Ramada', 
+            location: 'Hurghada, Egypt', 
+            depth: 72, 
+            time: 54 
+        }, 
+        { 
+            site: 'Ponte Mahoon', 
+            location: 'Maehbourg, Mauritius', 
+            depth: 54, 
+            time: 38 
+        }, 
+        { 
+            site: 'Molnar Cave', 
+            location: 'Budapest, Hungary', 
+            depth: 98, 
+            time: 62 
+        }
+        ]">
+            <div class="col-sm-4" ng-repeat="dive in dives">
+                <h3>{{dive.site}}</h3>
+                <h4>{{dive.location}}</h4>
+                <h2>{{dive.depth}} feet | {{dive.time}} min</h2>
+            </div> 
+        </div> 
+    </div> 
+</body> 
+</html>
+
