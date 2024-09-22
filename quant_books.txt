@@ -1,0 +1,5 @@
+1. Option Volatility and Pricing by Sheldon Natenberg
+2. Frequently Asked Questions in Quantitative Finance, Second Edition by Paul Wilmott
+3. Python for Finance by Yves Hilpisch
+4. Linear Algebra by Gilbert Strang
+5. Advances in Portfolio Management by Grinold and Kahn
